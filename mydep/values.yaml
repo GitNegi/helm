@@ -2,7 +2,7 @@ replicas: 3
 
 con1: 
    name: appcon
-   image: nginx:latest
+   image: httpd:latest
    port:
      containerport: 80
 
