@@ -1,0 +1,8 @@
+replicas: 3
+
+con1: 
+   name: appcon
+   image: nginx:latest
+   port:
+     containerport: 80
+

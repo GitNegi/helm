@@ -1,0 +1,6 @@
+Thank you for using our application!!!!
+
+to access this application run this command
+
+kubectl get svc mydep-svc
+
