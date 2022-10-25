@@ -72,17 +72,166 @@
    72  history 
    73  cd myapp/
    74  ls
-   75  git init 
-   76  git add .
-   77  git commit -m "first commit"
-   78  git config --global --edit
-   79  git commit -m "first commit"
-   80  git branch -M main
-   81  git remote add origin git@github.com:eraneeshansari/helm.git
-   82  cd
-   83  cd .ssh/
-   84  cat id_rsa.pub 
-   85  cd -
-   86  cd myapp/
-   87  git push -u origin main
-   88  history > cmd.txt
+   75  cd
+   76  mkdir package
+   77  ls
+   78  cd myapp/
+   79  ls
+   80  helm package mydep/
+   81  l
+   82  mv mydep-1.0.0.tgz ../package/
+   83  ls
+   84  cd ../package/
+   85  ls
+   86  helm repo index .
+   87  ls
+   88  vi index.yaml 
+   89  git init 
+   90  git commit -m "first commit"
+   91  git add .
+   92  git commit -m "first commit"
+   93  git branch -m main
+   94  git remote add origin git@github.com:eraneeshansari/myrepo.git
+   95  git push origin main
+   96  helm ls
+   97  helm uninstall mango 
+   98  helm repo ls
+   99  helm repo add myrepo https://raw.githubusercontent.com/eraneeshansari/myrepo/main
+  100  helm repo ls
+  101  cd
+  102  helm search repo myrepo
+  103  helm install apple myrepo/mydep
+  104  helm ls
+  105  kubectl get deployments.apps 
+  106  kubectl get pod
+  107  kubectl get svc
+  108  kubectl get pod
+  109  kubectl describe pod apple-74f9f56c89-gnbrs
+  110  kubectl get svc
+  111  helm ls
+  112  kubectl get pod --show-labels 
+  113  kubectl get svc --show-labels 
+  114  helm  delete mango
+  115  helm  delete apple
+  116  cd myapp/
+  117  helm  install apple mydep/
+  118  kubectl get pod
+  119  kubectl get svc
+  120  vi mydep/templates/deployment.yaml 
+  121  vi mydep/templates/service.yaml 
+  122  helm  uninstall apple 
+  123  helm  uninstall mango
+  124  helm  install mango mydep/
+  125  kubectl get pod
+  126  helm delete mango 
+  127  cd
+  128  ls
+  129  kubectl run test --image nginx --port 80 
+  130  kubectl expose pod test --type NodePort 
+  131  kubectl get svc
+  132  cd myapp/z
+  133  cd myapp/
+  134  helm install mango mydep/
+  135  kubectl get pod
+  136  kubectl get svc
+  137  kubectl get pod
+  138  helm delete mango 
+  139  vi mydep/templates/deployment.yaml 
+  140  vi mydep/templates/_helpers.tpl 
+  141  vi mydep/templates/deployment.yaml 
+  142  vi mydep/templates/_helpers.tpl 
+  143  vi mydep/templates/service.yaml 
+  144  helm install mango mydep/
+  145  kubectl get svc
+  146  helm delete mango 
+  147  vi mydep/templates/_helpers.tpl 
+  148  vi mydep/templates/service.yaml 
+  149  helm instal mango mydep/
+  150  helm install mango mydep/
+  151  kubectl get svc
+  152  kubectl get pod
+  153  kubectl delete  pod test 
+  154  kubectl delete  svc test 
+  155  helm delete mango 
+  156  vi mydep/templates/deployment.yaml 
+  157  vi mydep/values.yaml 
+  158  vi mydep/templates/deployment.yaml 
+  159  vi mydep/values.yaml 
+  160  vi mydep/templates/deployment.yaml 
+  161  helm install mango --debug --dry-run 
+  162  helm install mango mydep/ --debug --dry-run 
+  163  vi mydep/templates/service.yaml 
+  164  helm install mango mydep/ --debug --dry-run 
+  165  helm install mango mydep/ 
+  166  cd ..
+  167  ls
+  168  cd package/
+  169  rm mydep-1.0.0.tgz 
+  170  ls
+  171  rm index.yaml 
+  172  cd ../myapp/
+  173  ls
+  174  helm package mydep/
+  175  ls
+  176  mv mydep-1.0.0.tgz ../package/
+  177  cd  ../package/
+  178  ls
+  179  helm repo index 
+  180  helm repo index .
+  181  ls
+  182  git add .
+  183  git commit -m "chart update"
+  184  git push origin main 
+  185  cd
+  186  helm repo ls
+  187  helm repo update
+  188  helm repo ls
+  189  helm search repo myrepo
+  190  helm install apple myrepo/mydep
+  191  helm ls
+  192  helm delete mango 
+  193  helm search repo myrepo
+  194  helm install apple myrepo/mydep
+  195  kubectl get deployments.apps 
+  196  kubectl get svc
+  197  cd myapp/
+  198  ls
+  199  vi mydep/Chart.yaml 
+  200  vi mydep/values.yaml 
+  201  ls
+  202  helm package mydep/
+  203  ls
+  204  mv mydep-2.0.0.tgz ../package/
+  205  cd ../package/
+  206  ls
+  207  vi index.yaml 
+  208  helm repo index .
+  209  vi index.yaml 
+  210  git add .
+  211  git commit -m "v2"
+  212  git push origin main 
+  213  helm search repo myrepo
+  214  helm search repo -l myrepo
+  215  helm repo update
+  216  helm search repo myrepo
+  217  helm search repo -l myrepo
+  218  helm repo update myrepo
+  219  helm search repo myrepo
+  220  helm search repo -l myrepo
+  221  helm ls
+  222  helm upgrade apple myrepo/mydep 
+  223  kubectl get pod
+  224  kubectl describe pod apple-5d4876d8c9-lvqxr
+  225  helm ls
+  226  helm history apple 
+  227  helm rollback apple 1
+  228  kubectl get pod
+  229  kubectl get rs
+  230  cd 
+  231  cd myapp/
+  232  ls
+  233  cd mydep/
+  234  ls
+  235  cd ..
+  236  ls
+  237  history > cmd.txt 
