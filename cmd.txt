@@ -1,0 +1,88 @@
+    1  apt update && apt install awscli -y
+    2  curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+    3  ls -l
+    4  chmod +x kops-linux-amd64 
+    5  ls -l
+    6  mv kops-linux-amd64 kops
+    7  ls -l
+    8  mv kops /usr/bin/
+    9  kops 
+   10  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+   11  ls -l
+   12  chmod +x kubectl 
+   13  mv kubectl /usr/bin/
+   14  kubectl 
+   15  aws configure
+   16  ssh-keygen 
+   17  cd .ssh/
+   18  ls
+   19  pwd
+   20  cd
+   21  vi .bashrc 
+   22  source .bashrc 
+   23  kops create cluster --name=mykube.k8s.local --ssh-public-key=~/.ssh/id_rsa.pub --state=s3://mykops112233 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+   24  wget https://get.helm.sh/helm-v3.10.1-linux-amd64.tar.gz
+   25  ls
+   26  tar -xzvf helm-v3.10.1-linux-amd64.tar.gz 
+   27  ls
+   28  cd linux-amd64/
+   29  ls -l
+   30  ./helm 
+   31  ls
+   32  mv helm /usr/bin/
+   33  ls
+   34  cd 
+   35  ls
+   36  rm helm-v3.10.1-linux-amd64.tar.gz 
+   37  rm -rf linux-amd64/
+   38  ls
+   39  helm
+   40  helm version
+   41  helm search hub
+   42  helm search hub mysql
+   43  helm repo ls
+   44  helm repo list
+   45  helm search hub wordpress
+   46  helm repo add myrepo https://charts.bitnami.com/bitnami
+   47  helm repo list
+   48  helm search repo myrepo mysql
+   49  helm search repo myrepo/mysql
+   50  helm search repo -l myrepo/mysql
+   51  helm repo list
+   52  helm repo update
+   53  helm install wordpress-new myrepo/wordpress 
+   54  kubectl get secret --namespace default wordpress-new -o jsonpath="{.data.wordpress-password}" | base64 -d
+   55  kubectl get svc
+   56  kubectl get deployments.apps 
+   57  kubectl get pod
+   58  helm ls
+   59  kubectl get deployments.apps 
+   60  kubectl get pod
+   61  kubectl get svc
+   62  helm uninstall wordpress-new
+   63  helm ls
+   64  helm list
+   65  kubectl get deployments.apps 
+   66  kubectl get pod
+   67  kubectl get svc
+   68  helm repo ls
+   69  helm repo remove myrepo
+   70  helm repo ls
+   71  helm repo list
+   72  history 
+   73  cd myapp/
+   74  ls
+   75  git init 
+   76  git add .
+   77  git commit -m "first commit"
+   78  git config --global --edit
+   79  git commit -m "first commit"
+   80  git branch -M main
+   81  git remote add origin git@github.com:eraneeshansari/helm.git
+   82  cd
+   83  cd .ssh/
+   84  cat id_rsa.pub 
+   85  cd -
+   86  cd myapp/
+   87  git push -u origin main
+   88  history > cmd.txt
